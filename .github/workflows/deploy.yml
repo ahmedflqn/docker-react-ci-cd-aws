@@ -11,7 +11,6 @@ jobs:
 
     - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
     - name: build docker image
-      working-directory: frontend
       run: docker build -t flqn/docker-react -f Dockerfile.dev
     - name: test docker build
       run: docker run -e CI=true flqn/docker-react npm test
